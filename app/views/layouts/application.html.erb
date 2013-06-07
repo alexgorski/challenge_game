@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fantasy Challenge</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+  <body class="">
+  <!--<![endif]-->
+
+    <div class="navbar">
+        <div class="navbar-inner">
+                <ul class="nav pull-right">
+                    <li id="fat-menu" class="dropdown">
+
+                        <% if current_user %>
+
+                        <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="icon-signout"></i> Logged in as <%= current_user.email %> | Log Out
+                            <i class="icon-caret-down"></i>
+                        </a>
+
+                        <ul class="dropdown-menu">
+                            <li><%= link_to "Log Out", session_path("current"), method: "delete", :tabindex => "-1" %></li>
+                        </ul>
+
+                        <% elsif gmail_user %>
+
+                        <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="icon-signout"></i> Logged in as <%= gmail_user.name %> | Log Out
+                            <i class="icon-caret-down"></i>
+                        </a>
+
+                        <ul class="dropdown-menu">
+                            <li><%= link_to "Log Out", session_path("current"), method: "delete", :tabindex => "-1" %></li>
+                        </ul>
+
+                        <% else %>
+
+                        <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="icon-signin"></i> Log In / Create Account
+                            <i class="icon-caret-down"></i>
+                        </a>
+
+                        <ul class="dropdown-menu">
+
+                            
+                            
+                            <li><a tabindex="-1" class="visible-phone" href="#">Settings</a></li>
+                            <li><%= link_to "<i class='icon-user'></i> Create Account".html_safe, new_user_path, :tableindex => "-1" %></li>
+                            
+                            <li class="divider"></li>
+                            
+                            <li><%= link_to 'Sign In', new_session_path, :tableindex => "-1" %></li>
+                            
+                            <li class="divider"></li>
+
+                            <li><a tabindex="-1" class="visible-phone" href="#">Settings</a></li>
+                            <li><%= link_to 'Create/Sign In via Google', '/auth/google_oauth2', :tableindex => "-1" %></li>
+                            
+                        </ul>
+
+                        <% end %>
+
+                    </li>
+
+
+                </ul>
+                <%= link_to "Fantasy Challenge", users_path, :class => "brand" %>
+        </div>
+    </div>
+
+    <div id="main-menu">
+
+        <div id="phone-navigation">
+            <select class="selectnav" id="phone-menu">
+
+                <option><%=link_to "users", users_path %>Users</option>
+
+                <option value="reports.html" > Reports</option>
+
+                <option value="components.html" > Components</option>
+
+                <option value="pricing.html" > Pricing</option>
+
+                <option value="" > Settings</option>
+
+                <option value="sign-in.html" >- Sign In Page</option>
+
+                <option value="sign-up.html" >- Sign Up Page</option>
+
+                <option value="reset-password.html" >- Reset Password Page</option>
+
+                <option value="">----------------------</option>
+
+                <option value="index.html" selected="selected"> Students</option>
+
+                <option value="reports.html" > Reports</option>
+
+                <option value="components.html" > UI Features</option>
+
+                <option value="pricing.html" > Pricing</option>
+
+                <option value="media.html" > Media</option>
+
+                <option value="blog.html" > Blog</option>
+
+                <option value="help.html" > Help</option>
+            </select>
+        </div>
+        <% if current_user %>
+            <% if current_user.role == "Contestant" %>
+            <ul class="nav nav-tabs"> <!--Top nav bar -->
+                <li class=""><%=link_to user_path(current_user.id) do%>
+                    <i class="icon-user"></i>Home
+                    <%end%>
+                </li>
+                
+                <li><%=link_to leagues_path do%>
+                    <i class="icon-cogs"></i>Employers
+                    <%end%>
+                </li>
+                <li><%=link_to players_path do%>
+                    <i class="icon-cogs"></i>Employers
+                    <%end%>
+                </li>
+            </ul>
+
+            <% else %>
+            <ul class="nav nav-tabs"> <!--Top nav bar -->
+                
+                <!--identifying Employer by email-->
+                <li><%=link_to user_path(current_user.id) do%>
+                    <i class="icon-cogs"></i>Home
+                    <%end%>
+                </li>
+                
+                 <li><%=link_to leagues_path do%>
+                    <i class="icon-cogs"></i>Employers
+                    <%end%>
+                </li>
+                <li><%=link_to players_path do%>
+                    <i class="icon-cogs"></i>Employers
+                    <%end%>
+                </li>
+            </ul>
+            <% end %>
+        
+        <% else %>
+        <ul class="nav nav-tabs"> <!--Top nav bar -->
+            <li class=""><%=link_to players_path do%>
+                <i class="icon-user"></i>Players
+                <%end%>
+            </li>
+            
+        </ul>
+        <%end%>
+        
+    </div>
+
+
+    <div id="sidebar-nav">
+
+        <ul id="dashboard-menu" class="nav nav-list">
+
+            <li class=""><%=link_to players_path do%>
+                <i class="icon-user"></i>Players
+                <%end%>
+            </li>
+<!--
+            <li class=" "><a href="faq.html"><i class="icon-book"></i> <span>Faq</span></a></li>
+ 
+
+            <li class=" "><a href="calendar.html"><i class="icon-calendar"></i> <span>Calendar</span></a></li>
+
+            <li class=" "><a href="forms.html"><i class="icon-tasks"></i> <span>Forms</span></a></li>
+
+
+            <li class=" "><a href="tables.html"><i class="icon-table"></i> <span>Tables</span></a></li>
+-->
+        </ul>
+    </div>
+
+    
+
+    <script type='text/javascript'>
+    $(".nav a[href='/<%=params[:controller]%>']").parent('li').removeClass('active');
+    $(".nav a[href='/<%=params[:controller]%>']").parent('li').addClass("active");
+    </script>
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row-fluid">
+
+
+    <!-- <div class="alert alert-error fade in" >
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        <strong>Holy guacamole!</strong> This is an alert for your awesome web application.
+    </div> -->
+                 <%= yield %>
+
+
+                <footer>
+                    <hr>
+                
+                    <p>&copy; 2013 <a href="#">Gorski</a></p>
+                </footer>
+
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
