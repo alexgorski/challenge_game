@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130607185308) do
+ActiveRecord::Schema.define(:version => 20130608184203) do
 
   create_table "episodes", :force => true do |t|
     t.integer  "player_id"
@@ -73,18 +73,27 @@ ActiveRecord::Schema.define(:version => 20130607185308) do
 
   create_table "leagues", :force => true do |t|
     t.string   "title"
-    t.string   "season"
     t.date     "premier"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "season_id"
   end
 
   create_table "players", :force => true do |t|
     t.string   "name"
     t.integer  "total_points"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "season_id"
+  end
+
+  create_table "roster_players", :force => true do |t|
+    t.string   "name"
+    t.integer  "total_points"
     t.integer  "roster_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.integer  "player_id"
   end
 
   create_table "rosters", :force => true do |t|
@@ -93,6 +102,13 @@ ActiveRecord::Schema.define(:version => 20130607185308) do
     t.integer  "total_points"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.string   "name"
+  end
+
+  create_table "seasons", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|

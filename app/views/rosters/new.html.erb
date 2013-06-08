@@ -1,0 +1,24 @@
+<div class="container-fluid">
+  <div class="span8 main-content">
+    <%= form_for @roster do |r| %>
+    <%# binding.pry %>
+      <% @roster.errors.messages.each do |msg| %>
+        <P class="error_message"><%= msg[1][0] %></P>
+      <% end %>
+      <div>
+        <%= r.hidden_field :league_id, :value => @roster.league_id  %>
+      </div>
+      <div>
+        <%= r.hidden_field :user_id, :value => @roster.user_id  %>
+      </div>
+      <div>
+        <%= r.label :name %>
+        <%= r.text_field :name %>
+      </div>
+      
+      <div>
+        <%= r.submit %>
+      </div>
+      <% end %>
+  </div>
+</div>

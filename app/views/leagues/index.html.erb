@@ -1,0 +1,23 @@
+<h1>Leagues</h1>
+
+<div>
+  <table id="leagues_list">
+    <th>League Name</th>
+    <th>Challenge Season</th>
+    <th>Premier Date</th>
+    <% @leagues.each do |l| %>
+        <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+          <td>
+          <%= link_to l.title, league_path(l.id) %> <br>
+          </td>
+          <td><%= Season.find(l.season_id).title %>
+          </td>
+          <td><%= l.premier %>
+          </td>
+        </tr>
+    <% end%>
+    
+  </table>
+
+
+</div>

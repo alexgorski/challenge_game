@@ -1,0 +1,27 @@
+<h1><%= @user.name %> Home </h1>
+
+<h2>My Leagues</h2>
+
+<div>
+  <table id="leagues_list">
+    <th>League Name</th>
+    <th>Challenge Season</th>
+    <th>Premier Date</th>
+    <th>Roster Name</th>
+    <th>Roster Points</th>
+    <% @leagues.each do |l| %>
+    <% r = @rosters.select {|roster| roster.league_id == l.id} %>
+        <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+          <td><%= link_to l.title, league_path(l.id) %> <br></td>
+          <td><%= Season.find(l.season_id).title %></td>
+          <td><%= l.premier %></td>
+          <td><%= link_to r.first.name, roster_path(r.first.id) %> <br></td>
+          <td><%= r.first.total_points != nil ? r.first.total_points : 0  %> </td>
+        </tr>
+ 
+    <% end%>
+    
+  </table>
+
+
+</div>

@@ -1,4 +1,11 @@
 ChallengeGame::Application.routes.draw do
+  resources :seasons
+
+
+  resources :roster_players
+
+
+  root :to => 'leagues#index'
   resources :episodes
 
 
@@ -13,7 +20,7 @@ ChallengeGame::Application.routes.draw do
 
   resources :leagues
 
-
+  resources :sessions
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,0 +1,9 @@
+<h1> Challenge Seasons </h1>
+<h2>
+  <% @seasons.each do |s| %>
+
+  <ul>
+      <li><%= link_to s.title, season_path(s.id) %></li>
+  </ul>
+  <% end %>
+</h2>
