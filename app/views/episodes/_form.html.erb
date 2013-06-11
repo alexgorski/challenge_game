@@ -1,0 +1,217 @@
+<div class="container-fluid">
+    <div class="span8 main-content">
+        <%= form_for @episode do |i| %>
+
+          <% @episode.errors.messages.each do |msg| %>
+          <P class="error_message"><%= msg[1][0] %></P>
+              <% end %>
+            <div>
+            <%= i.hidden_field :player_id, :value => @episode.player_id %>
+            </div>
+            <div> 
+              <%= i.label :crying %>
+              <%= i.text_field :crying %>
+            </div>
+            <div> 
+              <%= i.label :right_reasons %>
+              <%= i.text_field :right_reasons %>
+            </div>
+            <div> 
+              <%= i.label :try_to_make_person_cry %>
+              <%= i.text_field :try_to_make_person_cry %>
+            </div>
+            <div> 
+              <%= i.label :blame_parents %>
+              <%= i.text_field :blame_parents %>
+            </div>
+            <div> 
+              <%= i.label :call_cause_everyone_hates %>
+              <%= i.text_field :call_cause_everyone_hates %>
+            </div>
+            <div> 
+              <%= i.label :threaten_to_sue %>
+              <%= i.text_field :threaten_to_sue %>
+            </div>
+            <div> 
+              <%= i.label :subject_of_intervention %>
+              <%= i.text_field :subject_of_intervention %>
+            </div>
+            <div> 
+              <%= i.label :plugging_career %>
+              <%= i.text_field :plugging_career %>
+            </div>
+            <div> 
+              <%= i.label :singing_to_two_or_more %>
+              <%= i.text_field :singing_to_two_or_more %>
+            </div>
+            <div> 
+              <%= i.label :open_mouth_kissing %>
+              <%= i.text_field :open_mouth_kissing %>
+            </div>
+            <div> 
+              <%= i.label :coitus_or_covers %>
+              <%= i.text_field :coitus_or_covers %>
+            </div>
+            <div> 
+              <%= i.label :deny_coitus %>
+              <%= i.text_field :deny_coitus %>
+            </div>
+            <div> 
+              <%= i.label :fraud_coitus_claim %>
+              <%= i.text_field :fraud_coitus_claim %>
+            </div>
+            <div> 
+              <%= i.label :fraud_coitus_denial %>
+              <%= i.text_field :fraud_coitus_denial %>
+            </div>
+            <div> 
+              <%= i.label :std_scare %>
+              <%= i.text_field :std_scare %>
+            </div>
+            <div> 
+              <%= i.label :preggers_scare %>
+              <%= i.text_field :preggers_scare %>
+            </div>
+            <div> 
+              <%= i.label :intentional_nudity %>
+              <%= i.text_field :intentional_nudity %>
+            </div>
+            <div> 
+              <%= i.label :unintentional_nudity %>
+              <%= i.text_field :unintentional_nudity %>
+            </div>
+            <div> 
+              <%= i.label :hitting_on_host %>
+              <%= i.text_field :hitting_on_host %>
+            </div>
+            <div> 
+              <%= i.label :concealed_erection %>
+              <%= i.text_field :concealed_erection %>
+            </div>
+            <div> 
+              <%= i.label :past_porn %>
+              <%= i.text_field :past_porn %>
+            </div>
+            <div> 
+              <%= i.label :verbal_fight %>
+              <%= i.text_field :verbal_fight %>
+            </div>
+            <div> 
+              <%= i.label :physical_fight %>
+              <%= i.text_field :physical_fight %>
+            </div>
+            <div> 
+              <%= i.label :physical_fight_win %>
+              <%= i.text_field :physical_fight_win %>
+            </div>
+            <div> 
+              <%= i.label :drink_throw %>
+              <%= i.text_field :drink_throw %>
+            </div>
+            <div> 
+              <%= i.label :unexplained_injury %>
+              <%= i.text_field :unexplained_injury %>
+            </div>
+            <div> 
+              <%= i.label :staff_restrained %>
+              <%= i.text_field :staff_restrained %>
+            </div>
+            <div> 
+              <%= i.label :request_assault %>
+              <%= i.text_field :request_assault %>
+            </div>
+            <div> 
+              <%= i.label :blaming_rules_for_not_assaulting %>
+              <%= i.text_field :blaming_rules_for_not_assaulting %>
+            </div>
+            <div> 
+              <%= i.label :try_to_fight_host %>
+              <%= i.text_field :try_to_fight_host %>
+            </div>
+            <div> 
+              <%= i.label :extreme_intoxication %>
+              <%= i.text_field :extreme_intoxication %>
+            </div>
+            <div> 
+              <%= i.label :vomiting %>
+              <%= i.text_field :vomiting %>
+            </div>
+            <div> 
+              <%= i.label :kicked_out_of_establishment %>
+              <%= i.text_field :kicked_out_of_establishment %>
+            </div>
+            <div> 
+              <%= i.label :violate_stated_beliefs %>
+              <%= i.text_field :violate_stated_beliefs %>
+            </div>
+            <div> 
+              <%= i.label :attend_church %>
+              <%= i.text_field :attend_church %>
+            </div>
+            <div> 
+              <%= i.label :non_court_ordered_volunteering %>
+              <%= i.text_field :non_court_ordered_volunteering %>
+            </div>
+            <div> 
+              <%= i.label :kicked_off_show %>
+              <%= i.text_field :kicked_off_show %>
+            </div>
+            <div> 
+              <%= i.label :make_others_threaten_to_leave %>
+              <%= i.text_field :make_others_threaten_to_leave %>
+            </div>
+            <div> 
+              <%= i.label :threaten_to_leave_show %>
+              <%= i.text_field :threaten_to_leave_show %>
+            </div>
+            <div> 
+              <%= i.label :leave_show %>
+              <%= i.text_field :leave_show %>
+            </div>
+            <div> 
+              <%= i.label :killed_it %>
+              <%= i.text_field :killed_it %>
+            </div>
+            <div> 
+              <%= i.label :win_elimination %>
+              <%= i.text_field :win_elimination %>
+            </div>
+            <div> 
+              <%= i.label :win_final %>
+              <%= i.text_field :win_final %>
+            </div>
+            <div> 
+              <%= i.label :injury_exit %>
+              <%= i.text_field :injury_exit %>
+            </div>
+            <div> 
+              <%= i.label :state_in_control %>
+              <%= i.text_field :state_in_control %>
+            </div>
+            <div> 
+              <%= i.label :slander_ex_sex_skills %>
+              <%= i.text_field :slander_ex_sex_skills %>
+            </div>
+            <div> 
+              <%= i.label :cannibalism %>
+              <%= i.text_field :cannibalism %>
+            </div>
+            <div> 
+              <%= i.label :inciting_vehical_with_siren_to_come %>
+              <%= i.text_field :inciting_vehical_with_siren_to_come %>
+            </div>
+            <div> 
+              <%= i.label :assault_inanimate_object %>
+              <%= i.text_field :assault_inanimate_object %>
+            </div>
+            <div> 
+              <%= i.label :cold_sore %>
+              <%= i.text_field :cold_sore %>
+            </div>
+            
+            <div id = 'create-user-button'>
+              <%= i.submit %>
+            </div>
+        <% end %>
+    </div>
+  

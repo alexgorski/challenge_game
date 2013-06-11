@@ -10,6 +10,8 @@ ChallengeGame::Application.routes.draw do
 
 
   resources :rosters
+  get '/setroster' => 'rosters#inputroster'
+  put '/setroster' => 'rosters#setroster'
 
 
   resources :players

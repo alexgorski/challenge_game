@@ -1,12 +1,23 @@
 <h1>Players</h1>
 <div>
+
   <table id="players_list">
+    <th></th>
     <th>Player Name</th>
     <th>Total Points</th>
     <% @players.each do |p| %>
         <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+          <td>
+            <% if current_user.role == "Administrator" %>
+            <button type="button" class="btn btn-primary"> 
+            <%= link_to '+ Episode', new_episode_path(p.id) %> 
+            </button>
+            <% else %>
+            <% end %>
+          </td>
           <td><%= link_to p.name, player_path(p.id) %> <br></td>
           <td><%= p.total_points != nil ? p.total_points : 0  %></td>
+         
         </tr>
     <% end%>   
   </table>

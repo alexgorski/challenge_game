@@ -1,0 +1,23 @@
+<%= form_for @league do |l| %>
+  <div class="field">
+    <%= l.label :title %>
+    <%= l.text_field :title %>
+  </div>
+  <div class="field">
+    <%= l.label :name %>
+    <%= l.select(:season_id, Season.all.collect {|s| [s.title, s.id]}, {:prompt => "Select Season"}) %>
+  </div>
+  <div>  
+    <%= l.fields_for :rosters do |r| %>
+      <%= render 'r_fields', r: r %>
+    <% end %>
+  </div>
+
+
+
+
+
+  <div id = 'create-user-button'>
+    <%= l.submit %>
+  </div>
+<% end %>

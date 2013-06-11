@@ -1,0 +1,15 @@
+<h1>Create a new league</h1>
+
+<%= form_for @league do |f| %>
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.select(:season_id, Season.all.collect {|s| [s.title, s.id]}, {:prompt => "Select Season"}) %>
+  </div>
+  <div id = 'create-user-button'>
+    <%= f.submit %>
+  </div>
+<% end %>

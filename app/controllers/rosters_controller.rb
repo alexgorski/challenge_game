@@ -16,5 +16,13 @@ class RostersController < ApplicationController
     @roster = Roster.find(params[:id])
     @roster_players = RosterPlayer.where(roster_id: @roster.id).all
   end
+  def setroster
+    @rosters = Roster.where(:league_id => params[:format]).all
+    @players = Player.where(:season_id => League.find(params[:format]).season_id.all
+    
+  end
+  
+  def inputroster(league)
 
+  end
 end

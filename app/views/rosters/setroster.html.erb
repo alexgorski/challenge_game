@@ -1,0 +1,28 @@
+<h1>Assign Players To Rosters</h1>
+
+<%= form_for @user do |f| %>
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class = 'user-type'>
+    <%= f.label :role %>
+    <%= f.select(:role, ["Contestant"], {:prompt => "Please Select"}) %>
+  </div>
+
+  <div>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+  <div>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+  </div>
+  <div id = 'create-user-button'>
+    <%= f.submit %>
+  </div>
+<% end %>

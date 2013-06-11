@@ -1,0 +1,10 @@
+<fieldset class="roster_players">
+  <% @number_of_spots.times do |n| %>
+    
+    <div>
+      <%= rp.label :name %>
+      <%= rp.select(:name, @players.collect{|p| [p.name, p.id]}, {:promt => "Select Player"}) %>
+    </div>
+  
+  <% end %>
+</fieldset>

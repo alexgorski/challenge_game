@@ -1,5 +1,9 @@
 <h1>League <%= @league.title %> for Challenge: <%= @season.title %> </h1>
-
+  <% case current_user.role %> 
+    <% when "Administrator", "Creator" %>
+      <button type="button" class="btn btn-primary"> <%= link_to 'Populate Teams', edit_league_path(@league) %> </button>
+      
+  <% end %>
 <div>
   <table id="rosters_list">
     <th>Roster Name</th>
