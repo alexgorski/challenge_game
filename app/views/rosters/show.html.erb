@@ -4,15 +4,13 @@
   <table id="players_list">
     <th>Player Name</th>
     <th>Total Points</th>
-    Player.first.episodes.each {|e| <th>Episode e.id</th>}
+    
     <th>Total Points</th>
     <% @roster_players.each do |r| %>
         <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
-          <td><%= link_to r.name, roster_path(r.id) %> <br></td>
+          <td><%= link_to r.name, player_path(r.player_id) %> <br></td>
           <td><%= r.total_points != nil ? r.total_points : 0  %></td>
-          <% r.episodes.each do |e| %>
-          <td><%= e.total_points != nil ? r.total_points : 0  %></td>
-          <% end %>
+        
         </tr>
     <% end%>   
   </table>

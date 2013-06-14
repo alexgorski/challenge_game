@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   has_many :leagues, :through => :rosters
 
   validates_uniqueness_of :email
-  validates :name, :presence => true
-  validates :email, :presence => true
+  validates :name, :email, :presence => true
+
   
 end

@@ -1,6 +1,6 @@
 class RostersController < ApplicationController
   def new
-    @roster = Roster.new(:user_id => current_user.id, :league_id => params[:format])
+    @roster = Roster.new(:user_id => current_user.id, :league_id => params[:league_id])
   end
   
   def create
@@ -16,13 +16,5 @@ class RostersController < ApplicationController
     @roster = Roster.find(params[:id])
     @roster_players = RosterPlayer.where(roster_id: @roster.id).all
   end
-  def setroster
-    @rosters = Roster.where(:league_id => params[:format]).all
-    @players = Player.where(:season_id => League.find(params[:format]).season_id.all
-    
-  end
-  
-  def inputroster(league)
 
-  end
 end

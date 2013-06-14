@@ -1,0 +1,12 @@
+<h1> <%= @player.name %> </h1>
+
+<table>
+  <th>Episode</th>
+  <th>Episode Points</th>
+  <% @episodes.each do |e| %>
+  <tr>
+    <td><%= link_to e.title, episode_path(:id => e.id)%> </td>
+    <td><%= e.total_points %> </td>
+  </tr>
+  <% end %>
+</table>

@@ -8,7 +8,11 @@
             <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
               <td><%= link_to l.title, league_path(l.id) %> <br></td>
               <td><%= l.premier %></td>
-              <td><button type="button" class="btn btn-primary"> <%= link_to 'Join League', new_roster_path %> </button></td>
+              <td>
+                 
+                  <%= link_to 'Join League', new_roster_path(:league_id => l.id), :class =>  "btn btn-primary" %> 
+                
+              </td>
             </tr> 
         <% end%>    
       </table>

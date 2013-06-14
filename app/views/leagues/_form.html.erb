@@ -4,12 +4,22 @@
     <%= l.text_field :title %>
   </div>
   <div class="field">
-    <%= l.label :name %>
-    <%= l.select(:season_id, Season.all.collect {|s| [s.title, s.id]}, {:prompt => "Select Season"}) %>
+    <%= l.label "Season" %>
+    <%= l.select(:season_id, Season.all.collect {|s| [s.title, s.id]}) %>
   </div>
   <div>  
     <%= l.fields_for :rosters do |r| %>
-      <%= render 'r_fields', r: r %>
+      <%= r.object.name %>
+      <%= r.hidden_field :name, :value => r.object.name %>
+      <%= r.hidden_field :id, :value => r.object.id %>
+        
+        <%= r.fields_for :roster_players do |rp| %>
+        
+        <div>
+          Add Player: <%= rp.select(:id, @players.collect{|p| [p.name, p.id]}) %>
+        </div>
+        
+        <% end %>
     <% end %>
   </div>
 
