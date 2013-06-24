@@ -44,9 +44,7 @@
                         </a>
 
                         <ul class="dropdown-menu">
-
-                            
-                            
+ 
                             <li><a tabindex="-1" class="visible-phone" href="#">Settings</a></li>
                             <li><%= link_to "<i class='icon-user'></i> Create Account".html_safe, new_user_path, :tableindex => "-1" %></li>
                             
@@ -161,11 +159,6 @@
         
         <% else %>
         <ul class="nav nav-tabs"> <!--Top nav bar -->
-            <li class=""><%=link_to players_path do%>
-                <i class="icon-user"></i>Players
-                <%end%>
-            </li>
-            
         </ul>
         <%end%>
         
@@ -173,26 +166,66 @@
 
 
     <div id="sidebar-nav">
-
+    <% if current_user %>
+        <% if current_user.role == "Contestant" %>
         <ul id="dashboard-menu" class="nav nav-list">
-
             <li class=""><%=link_to players_path do%>
                 <i class="icon-user"></i>Players
                 <%end%>
             </li>
-<!--
-            <li class=" "><a href="faq.html"><i class="icon-book"></i> <span>Faq</span></a></li>
- 
-
-            <li class=" "><a href="calendar.html"><i class="icon-calendar"></i> <span>Calendar</span></a></li>
-
-            <li class=" "><a href="forms.html"><i class="icon-tasks"></i> <span>Forms</span></a></li>
-
-
-            <li class=" "><a href="tables.html"><i class="icon-table"></i> <span>Tables</span></a></li>
--->
+            <li class=""><%=link_to user_path(current_user.id) do%>
+                <i class="icon-user"></i>Home
+                <%end%>
+            </li>
+            <li><%=link_to seasons_path do%>
+                <i class="icon-cogs"></i>Seasons
+                <%end%>
+            </li>
+            <li><%=link_to leagues_path do%>
+                <i class="icon-cogs"></i>Leagues
+                <%end%>
+            </li>
+            <li><%=link_to rosters_path do%>
+                <i class="icon-cogs"></i>Rosters
+                <%end%>
+            </li>
+            <li><%=link_to players_path do%>
+                <i class="icon-cogs"></i>Players
+                <%end%>
+            </li>
         </ul>
+        <% else %>
+        <ul id="dashboard-menu" class="nav nav-list">
+            <li class=""><%=link_to players_path do%>
+                <i class="icon-user"></i>Players
+                <%end%>
+            </li>
+            <li class=""><%=link_to user_path(current_user.id) do%>
+                <i class="icon-user"></i>Home
+                <%end%>
+            </li>
+            <li><%=link_to seasons_path do%>
+                <i class="icon-cogs"></i>Seasons
+                <%end%>
+            </li>
+            <li><%=link_to leagues_path do%>
+                <i class="icon-cogs"></i>Leagues
+                <%end%>
+            </li>
+            <li><%=link_to rosters_path do%>
+                <i class="icon-cogs"></i>Rosters
+                <%end%>
+            </li>
+            <li><%=link_to players_path do%>
+                <i class="icon-cogs"></i>Players
+                <%end%>
+            </li>
+        </ul>
+        <% end %>    
+    <% else %>
+    <% end %>
     </div>
+    
 
     
 

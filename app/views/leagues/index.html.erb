@@ -1,5 +1,8 @@
 <h1>Leagues</h1>
- <button type="button" class="btn btn-primary"> <%= link_to 'Create League', new_league_path %> </button>
+ <% if current_user %>
+    <button type="button" class="btn btn-primary"> <%= link_to 'Create League', new_league_path %> </button>
+    <% else %>
+    <% end %>
 <div>
   <table id="leagues_list">
     <th>League Name</th>
@@ -14,7 +17,10 @@
           </td>
           <td><%= l.premier %>
           </td>
-          <td><button type="button" class="btn btn-primary"> <%= link_to 'Join League', new_roster_path(l.id) %> </button></td>
+          <% if current_user %>
+          <td><button type="button" class="btn btn-primary"> <%= link_to 'Join League', new_roster_path(:league_id => l.id) %> </button></td>
+          <% else %>
+          <% end %>
         </tr>
     <% end%>
     

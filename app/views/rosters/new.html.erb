@@ -7,7 +7,6 @@
       <% end %>
       <div>
         <%= r.hidden_field :league_id, :value => @roster.league_id  %>
-        <% binding.pry%>
       </div>
       <div>
         <%= r.hidden_field :user_id, :value => @roster.user_id  %>
@@ -16,7 +15,6 @@
         <%= r.label :name %>
         <%= r.text_field :name %>
       </div>
-      
       <div>
         <%= r.submit %>
       </div>
